@@ -255,6 +255,10 @@
 
   function setSeason(season, animate) {
     if (SEASONS.indexOf(season) === -1) return;
+    applySeason(season, animate);
+  }
+
+  function applySeason(season, animate) {
     root.setAttribute('data-season', season);
     try {
       localStorage.setItem(STORAGE_KEY, season);

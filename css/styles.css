@@ -74,6 +74,11 @@
   --bud-hi: #ffe2ec;
   --accent: #c94468;
   --particle: #ffc4d6;
+  --flower-a: rgba(255, 194, 214, 1);
+  --flower-b: rgba(255, 248, 220, 1);
+  --flower-c: rgba(255, 217, 230, 1);
+  --sun: rgba(255, 244, 170, 0);
+  --sun-soft: rgba(255, 232, 140, 0);
 }
 [data-season='summer'] {
   --sky: #5cbcf0;
@@ -88,6 +93,11 @@
   --bud-hi: #fff2b0;
   --accent: #b86a00;
   --particle: #fff2a0;
+  --flower-a: rgba(255, 194, 214, 0);
+  --flower-b: rgba(255, 248, 220, 0);
+  --flower-c: rgba(255, 217, 230, 0);
+  --sun: rgba(255, 244, 170, 0.95);
+  --sun-soft: rgba(255, 232, 140, 0.55);
 }
 [data-season='fall'] {
   --sky: #f2c88f;
@@ -102,6 +112,11 @@
   --bud-hi: #f59a72;
   --accent: #a8401a;
   --particle: #e07a2a;
+  --flower-a: rgba(255, 194, 214, 0);
+  --flower-b: rgba(255, 248, 220, 0);
+  --flower-c: rgba(255, 217, 230, 0);
+  --sun: rgba(255, 244, 170, 0);
+  --sun-soft: rgba(255, 232, 140, 0);
 }
 [data-season='winter'] {
   --sky: #a7bdd3;
@@ -116,6 +131,119 @@
   --bud-hi: #f3faff;
   --accent: #33699a;
   --particle: #ffffff;
+  --flower-a: rgba(255, 194, 214, 0);
+  --flower-b: rgba(255, 248, 220, 0);
+  --flower-c: rgba(255, 217, 230, 0);
+  --sun: rgba(255, 244, 170, 0);
+  --sun-soft: rgba(255, 232, 140, 0);
+}
+
+/* Season colours are registered as real colours, so the browser can fade
+   them, even inside gradients. Every colour then changes at the same speed. */
+@property --sky {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #d3eef2;
+}
+@property --grass {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #a3d36a;
+}
+@property --grass-2 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #95c75c;
+}
+@property --leaf {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #7fcf57;
+}
+@property --leaf-dark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #4a9a37;
+}
+@property --stem {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #5aa83e;
+}
+@property --fruit {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #e8607f;
+}
+@property --fruit-hi {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffb8c8;
+}
+@property --bud {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f3a6c0;
+}
+@property --bud-hi {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffe2ec;
+}
+@property --accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #c94468;
+}
+@property --particle {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffc4d6;
+}
+@property --flower-a {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(255, 194, 214, 1);
+}
+@property --flower-b {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(255, 248, 220, 1);
+}
+@property --flower-c {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(255, 217, 230, 1);
+}
+@property --sun {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(255, 244, 170, 0);
+}
+@property --sun-soft {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(255, 232, 140, 0);
+}
+:root {
+  transition:
+    --sky 0.5s ease,
+    --grass 0.5s ease,
+    --grass-2 0.5s ease,
+    --leaf 0.5s ease,
+    --leaf-dark 0.5s ease,
+    --stem 0.5s ease,
+    --fruit 0.5s ease,
+    --fruit-hi 0.5s ease,
+    --bud 0.5s ease,
+    --bud-hi 0.5s ease,
+    --accent 0.5s ease,
+    --particle 0.5s ease,
+    --flower-a 0.5s ease,
+    --flower-b 0.5s ease,
+    --flower-c 0.5s ease,
+    --sun 0.5s ease,
+    --sun-soft 0.5s ease;
 }
 
 /* 2. Base ------------------------------------------------------------------ */
@@ -135,18 +263,11 @@ html {
   scroll-behavior: smooth;
   /* Grass: a two-tone checker, 16 game-pixels per tile */
   background-color: var(--grass);
-  background-image: conic-gradient(var(--grass-2) 25%, transparent 0 50%, var(--grass-2) 0 75%, transparent 0);
-  background-size: 64px 64px;
-  transition: background-color 0.4s ease;
-}
-
-/* Spring: little pink and white flowers scattered through the grass */
-html[data-season='spring'],
-html:not([data-season]) {
+  /* little flowers (visible in spring only) over a two-tone grass checker */
   background-image:
-    radial-gradient(circle at 14px 18px, #ffc2d6 0 2.5px, transparent 3.5px),
-    radial-gradient(circle at 44px 46px, #fff8dc 0 2.5px, transparent 3.5px),
-    radial-gradient(circle at 52px 12px, #ffd9e6 0 2px, transparent 3px),
+    radial-gradient(circle at 14px 18px, var(--flower-a) 0 2.5px, transparent 3.5px),
+    radial-gradient(circle at 44px 46px, var(--flower-b) 0 2.5px, transparent 3.5px),
+    radial-gradient(circle at 52px 12px, var(--flower-c) 0 2px, transparent 3px),
     conic-gradient(var(--grass-2) 25%, transparent 0 50%, var(--grass-2) 0 75%, transparent 0);
   background-size: 128px 128px, 128px 128px, 128px 128px, 64px 64px;
 }
@@ -158,14 +279,9 @@ body {
   font-size: var(--step-0);
   line-height: 1.6;
   color: var(--ink);
-  /* sky fades into the field behind the header and hero */
-  background: linear-gradient(to bottom, var(--sky) 0, var(--sky) 14rem, transparent 34rem);
-  transition: background 0.4s ease;
-}
-/* Summer: strong sun glowing in from the top corner */
-[data-season='summer'] body {
+  /* sky fades into the field behind the header and hero; the sun shows in summer */
   background:
-    radial-gradient(circle at 92% -3rem, rgba(255, 244, 170, 0.95) 0, rgba(255, 232, 140, 0.55) 8rem, transparent 22rem),
+    radial-gradient(circle at 92% -3rem, var(--sun) 0, var(--sun-soft) 8rem, transparent 22rem),
     linear-gradient(to bottom, var(--sky) 0, var(--sky) 14rem, transparent 34rem);
 }
 
@@ -1566,6 +1682,7 @@ p:last-child {
   border: 3px solid var(--wood-mid);
   border-radius: 4px;
 }
+
 
 /* Particles fall once when the season changes */
 .particles {
