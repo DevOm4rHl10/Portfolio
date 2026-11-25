@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" data-season="spring">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Omar Holeihel | Portfolio</title>
+  <meta name="description" content="Portfolio of Omar Holeihel, 4th-year Computer Engineering student at INSA Lyon seeking a Data Science / Machine Learning internship from May 2027. Projects, experience, books, and how to reach me.">
+  <meta name="theme-color" content="#bfe6f0">
+
+  <!-- Social previews (LinkedIn, Discord, Slack). Update the URL after deploying. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Omar Holeihel | Portfolio">
+  <meta property="og:description" content="Welcome to my little farm of projects and intellectual adventures.">
+  <meta property="og:url" content="https://devom4rhl10.github.io/">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Pick the season before the first paint so the page never flashes -->
+  <script>
+    (function () {
+      var s;
+      try { s = localStorage.getItem('farm-season'); } catch (e) {}
+      if (!/^(spring|summer|fall|winter)$/.test(s || '')) {
+        var m = new Date().getMonth(); // 0 = January
+        s = m < 2 || m === 11 ? 'winter' : m < 5 ? 'spring' : m < 8 ? 'summer' : 'fall';
+      }
+      document.documentElement.setAttribute('data-season', s);
+    })();
+  </script>
+
+  <!-- Fonts: two families, only the weights used, swap so text shows immediately -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Pixelify+Sans:wght@400;600&display=swap">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#farm">Skip to projects</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <div class="header-main">
+        <a class="brand" href="index.html"><span data-brand-icon></span><span data-name>Omar Holeihel</span></a>
+        <nav class="site-nav" aria-label="Sections">
+          <ul>
+          <li><a href="#farm"><span class="nav-full">My projects</span><span class="nav-short">Projects</span></a></li>
+          <li><a href="#experience"><span class="nav-full">My experience</span><span class="nav-short">Work</span></a></li>
+          <li><a href="#bookshelf"><span class="nav-full">My bookshelf</span><span class="nav-short">Books</span></a></li>
+          <li><a href="#about"><span class="nav-full">About me</span><span class="nav-short">About</span></a></li>
+          <li><a href="#contact"><span class="nav-full">Contact me</span><span class="nav-short">Contact</span></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-controls">
+        <button type="button" class="btn music-toggle" data-music-toggle aria-pressed="false" hidden>Music</button>
+        <div class="season-switch" role="group" aria-label="Season theme">
+          <button type="button" data-set-season="spring" aria-pressed="false">Spring</button>
+          <button type="button" data-set-season="summer" aria-pressed="false">Summer</button>
+          <button type="button" data-set-season="fall" aria-pressed="false">Fall</button>
+          <button type="button" data-set-season="winter" aria-pressed="false">Winter</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Introduction">
+      <div class="wrap">
+        <div class="dialog" id="hero-content">
+          <noscript>
+            <p>This portfolio needs JavaScript to show its content. Please enable it, or reach me on GitHub.</p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="farm" aria-labelledby="farm-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="plank" id="farm-title">My projects</h2>
+        </div>
+
+        <div class="dialog legend">
+          <div>
+            <h3>Quality shows the size of a project</h3>
+            <ul>
+              <li data-legend-quality="iridium"><span class="legend-icon" data-star-icon="iridium"></span> Iridium: a big project</li>
+              <li data-legend-quality="gold"><span class="legend-icon" data-star-icon="gold"></span> Gold: a solid, well-rounded project</li>
+              <li data-legend-quality="silver"><span class="legend-icon" data-star-icon="silver"></span> Silver: a medium-sized project</li>
+              <li data-legend-quality="none"><span class="legend-icon legend-icon--empty" aria-hidden="true"></span> No star: small, finished, worth a look</li>
+            </ul>
+          </div>
+        </div>
+
+        <ul class="farm" id="farm-list"></ul>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="plank" id="experience-title">My experience</h2>
+        </div>
+        <div class="dialog" id="experience-content"></div>
+      </div>
+    </section>
+
+    <section class="section" id="bookshelf" aria-labelledby="bookshelf-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="plank" id="bookshelf-title">My bookshelf</h2>
+        </div>
+        <div class="dialog bookshelf" id="bookshelf-content"></div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="plank" id="about-title">About me</h2>
+        </div>
+        <div class="dialog about-grid" id="about-content"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="plank" id="contact-title">Contact me</h2>
+        </div>
+        <div class="dialog contact" id="contact-content"></div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="farewell" aria-label="Goodbye" hidden>
+    <div class="wrap">
+      <p class="farewell-sign" data-farewell></p>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span data-year>2026</span> <span data-name>Omar Holeihel</span>. Built with HTML, CSS and JavaScript.</p>
+    </div>
+  </footer>
+</body>
+</html>

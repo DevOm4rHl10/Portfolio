@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" data-season="spring">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project | Omar Holeihel</title>
+  <meta name="description" content="A project from Omar Holeihel's portfolio: what I built, what I learned and the skills I picked up.">
+  <meta name="theme-color" content="#bfe6f0">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Project | Omar Holeihel">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <script>
+    (function () {
+      var s;
+      try { s = localStorage.getItem('farm-season'); } catch (e) {}
+      if (!/^(spring|summer|fall|winter)$/.test(s || '')) {
+        var m = new Date().getMonth();
+        s = m < 2 || m === 11 ? 'winter' : m < 5 ? 'spring' : m < 8 ? 'summer' : 'fall';
+      }
+      document.documentElement.setAttribute('data-season', s);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Pixelify+Sans:wght@400;600&display=swap">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#project-root">Skip to project</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <div class="header-main">
+        <a class="brand" href="index.html"><span data-brand-icon></span><span data-name>Omar Holeihel</span></a>
+        <nav class="site-nav" aria-label="Sections">
+          <ul>
+          <li><a href="index.html#farm"><span class="nav-full">My projects</span><span class="nav-short">Projects</span></a></li>
+          <li><a href="index.html#experience"><span class="nav-full">My experience</span><span class="nav-short">Work</span></a></li>
+          <li><a href="index.html#bookshelf"><span class="nav-full">My bookshelf</span><span class="nav-short">Books</span></a></li>
+          <li><a href="index.html#about"><span class="nav-full">About me</span><span class="nav-short">About</span></a></li>
+          <li><a href="index.html#contact"><span class="nav-full">Contact me</span><span class="nav-short">Contact</span></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-controls">
+        <button type="button" class="btn music-toggle" data-music-toggle aria-pressed="false" hidden>Music</button>
+        <div class="season-switch" role="group" aria-label="Season theme">
+          <button type="button" data-set-season="spring" aria-pressed="false">Spring</button>
+          <button type="button" data-set-season="summer" aria-pressed="false">Summer</button>
+          <button type="button" data-set-season="fall" aria-pressed="false">Fall</button>
+          <button type="button" data-set-season="winter" aria-pressed="false">Winter</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-main">
+    <div class="wrap">
+      <a class="btn back-link" href="index.html#farm">Back to the farm</a>
+      <div id="project-root">
+        <noscript>
+          <div class="dialog"><p>This page needs JavaScript to show the project details.</p></div>
+        </noscript>
+      </div>
+    </div>
+  </main>
+
+  <aside class="farewell" aria-label="Goodbye" hidden>
+    <div class="wrap">
+      <p class="farewell-sign" data-farewell></p>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span data-year>2026</span> <span data-name>Omar Holeihel</span>. Built with HTML, CSS and JavaScript.</p>
+    </div>
+  </footer>
+</body>
+</html>
